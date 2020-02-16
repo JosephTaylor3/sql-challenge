@@ -59,7 +59,8 @@ select * from salaries;
 select * from titles;
 
 -- List the following details of each employee: employee number, last name, first name, gender, and salary
-	-- Join the employees and salaries tables and select needed columns 
+	-- Join the employees and salaries tables and select needed columns
+	-- note to self: excel count after running SQL query confirms there are 300024 records
 select employees.emp_no, employees.last_name, employees.first_name, employees.gender, salaries.salary
 FROM salaries
 INNER JOIN employees ON
@@ -72,6 +73,7 @@ select * from employees where hire_date like '1986%';
 -- List the manager of each department with the following information: department number, department name, 
 -- the manager's employee number, last name, first name, and start and end employment dates.
 	-- note to self: order the column selection in the order you want it to appear after the joins
+	-- note to self: review of the csv confirms there are 24 records 
 select dept_manager.dept_no, departments.dept_name, dept_manager.emp_no, employees.last_name, employees.first_name, dept_manager.from_date, dept_manager.to_date  
 from dept_manager
 LEFT JOIN departments ON
@@ -93,7 +95,7 @@ dept_emp.dept_no=departments.dept_no
 SELECT employees.first_name, employees.last_name from employees where first_name = 'Hercules' AND last_name like 'B%'
 
 -- List all employees in the Sales department, including their employee number, last name, first name, and department name.
-	-- note to self: excel filtering after running sequel query confirms there are 52245 records of d007 Sales dept. 
+	-- note to self: excel filtering after running SQL query confirms there are 52245 records of d007 Sales dept. 
 select employees.emp_no, employees.last_name, employees.first_name, departments.dept_name 
 from employees
 LEFT JOIN dept_emp ON
@@ -104,7 +106,7 @@ where dept_name = 'Sales'
 
 -- List all employees in the Sales and Development departments, including their employee number, 
 -- last name, first name, and department name.
-	-- note to self: excel filtering after running sequel query confirms there are 137952 records of d007 and d005. 
+	-- note to self: excel filtering after running SQL query confirms there are 137952 records of d007 and d005. 
 select employees.emp_no, employees.last_name, employees.first_name, departments.dept_name 
 from employees
 LEFT JOIN dept_emp ON
